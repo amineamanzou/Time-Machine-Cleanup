@@ -113,7 +113,7 @@ TM_BACKUPS=( "${(ps:\n:)$(tmutil listbackups)}" )
 TM_BACKUPS_SORTED=( ${(n)TM_BACKUPS} )
 
 # Establish the threshold date before which backups will be deleted
-THRESHOLD_DATE=$(date -j -v-${DAYS_TO_KEEP}d +"%Y-%m-%d")
+THRESHOLD_DATE=$(date --date="${DAYS_TO_KEEP} days ago" +"%Y-%m-%d")
 
 # As a safety precaution, just check that the output format has not changed.
 # If it has, let's not proceed.
